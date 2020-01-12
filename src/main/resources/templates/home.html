@@ -1,0 +1,70 @@
+<!--
+  ~ Copyright 2017 Okta, Inc.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Landing Page</title>
+    <!--/*/ <th:block th:include="head :: head"/> /*/-->
+    
+	<style>
+	.button {
+	  background-color: #4CAF50;
+	  border: none;
+	  color: white;
+	  padding: 15px 32px;
+	  text-align: center;
+	  text-decoration: none;
+	  display: inline-block;
+	  font-size: 16px;
+	  margin: 4px 2px;
+	  cursor: pointer;
+	}
+	</style>
+</head>
+  <body id="samples">
+  <div th:replace="menu :: menu"></div>
+  
+  	 
+    <div id="content" class="container">    
+      	
+	      <div th:unless="${#authorization.expression('isAuthenticated()')}">
+	      	<h2>This is an unsecured (open) landing page</h2>
+	        <p>Hello!</p>	        
+	        
+	        <p>If you have an account, click on the button below to login.</p>
+	      </div>
+	
+	      <div th:if="${#authorization.expression('isAuthenticated()')}">
+	      	<h2>This is a secure landing page</h2>
+	        <p>Welcome <span th:text="${#authentication.name}">Joe Coder</span>!</p>
+	        <p>You have successfully authenticated against your Okta org, and have been redirected back to this application.</p>
+	        
+	        <!--
+	        <form action="#" th:action="@{/home}" th:object="${registration}" method="post">
+	        	<p><label th:text="'Last Login: ' + ${lastLogin}"></label></p>
+	        	<p><label th:text="'firstName: ' + ${firstName}"></label></p>
+		    </form>
+		    --->
+	        
+	        <a href="/admin" style="text-align:center;">Admin</a>
+	      </div>
+	
+		    <form method="get" th:action="@{/oauth2/authorization/okta}" th:unless="${#authorization.expression('isAuthenticated()')}">
+	          <button id="login-button" class="button" type="submit">Login</button>
+	        </form>	
+	
+    </div>
+  </body>
+</html>

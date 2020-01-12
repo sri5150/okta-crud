@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Admin - Create User</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Admin Page - Create User</h1>
+	
+	<form action="#" th:action="@{/createUser}" th:object="${registration}" method="post">
+    	<p>First Name: <input type="text" th:field="*{firstName}" /></p>
+        <p>Last Name: <input type="text" th:field="*{lastName}" /></p>
+        <p>Login: <input type="text" th:field="*{login}" /></p>
+        <p>Email Address: <input type="text" th:field="*{email}" /></p>
+        <p>Password: <input type="password" th:field="*{password}" /></p>
+        <p><input type="submit" value="Submit" />
+        <input type="reset" value="Reset" /></p>
+    </form>
+    
+    <a href="/admin" style="text-align:center;">Admin</a>
+</body>
+</html>

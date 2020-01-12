@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Admin - Add user to admins group</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Admin Page -  Add user to admins group</h1>	
+	
+	<form action="#" th:action="@{/makeAdmin}" th:object="${registration}" method="post">
+        <p>Enter user's email Address: <input type="text" th:field="*{email}" /></p>
+        <p><input type="submit" value="Submit" />
+        <input type="reset" value="Reset" /></p>
+        
+        <p>First Name: <input type="text" th:field="*{firstName}" /></p>
+    	<p>Last Name: <input type="text" th:field="*{lastName}" /></p>
+    	<p>Groups: <input type="text" th:field="*{groups}" /></p>
+        
+    </form>
+    
+    <a href="/admin" style="text-align:center;">Admin</a>
+</body>
+</html>

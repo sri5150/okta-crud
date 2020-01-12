@@ -1,0 +1,44 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Page</title>
+    <!--/*/ <th:block th:include="head :: head"/> /*/-->
+    
+	<style>
+	.button {
+	  background-color: #4CAF50;
+	  border: none;
+	  color: white;
+	  padding: 15px 32px;
+	  text-align: center;
+	  text-decoration: none;
+	  display: inline-block;
+	  font-size: 16px;
+	  margin: 4px 2px;
+	  cursor: pointer;
+	}
+	</style>
+</head>
+  <body id="samples">
+  <div th:replace="menu :: menu"></div>
+  
+  	 
+    <div id="content" class="container">
+    	<h1>Admin Page</h1>
+    	
+    	<p>This page will allow you to Create, Read, Update, Add Users to Groups and Delete Users<p>
+    	
+    	<p><a href="/createUser" style="text-align:center;">Create User</a></p>
+    	
+    	<p><a href="/findUser" style="text-align:center;">Find User</a></p>
+    	
+    	<p><a href="/updateUser" style="text-align:center;">Update User</a></p>
+    	
+    	<p><a href="/makeAdmin" style="text-align:center;">Add User to admin group</a></p>
+    	
+    	<p><a href="/deleteUser" style="text-align:center;">Delete User</a></p>
+    	
+    	
+	
+    </div>
+  </body>
+</html>
